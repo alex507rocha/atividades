@@ -6,14 +6,14 @@ use \Hcode\DB\Sql;
 use \Hcode\Model;
 use \Hcode\Mailer;
 
-class Product extends Model {
+class Atividade extends Model {
 
 	public static function listAll()
 	{
 
 		$sql = new Sql();
 
-		return $sql->select("SELECT * FROM tb_products ORDER BY desproduct");
+		return $sql->select("SELECT * FROM tb_atividades ORDER BY desctituloatividade");
 
 	}
 
@@ -22,7 +22,7 @@ class Product extends Model {
 
 		foreach ($list as &$row) {
 			
-			$p = new Product();
+			$p = new Atividades();
 			$p->setData($row);
 			$row = $p->getValues();
 
@@ -38,28 +38,52 @@ class Product extends Model {
 
 		$sql = new Sql();
 
-		$results = $sql->select("CALL sp_products_save(:idproduct, :desproduct, :vlprice, :vlwidth, :vlheight, :vllength, :vlweight, :desurl)", array(
-			":idproduct"=>$this->getidproduct(),
-			":desproduct"=>$this->getdesproduct(),
-			":vlprice"=>$this->getvlprice(),
-			":vlwidth"=>$this->getvlwidth(),
-			":vlheight"=>$this->getvlheight(),
-			":vllength"=>$this->getvllength(),
-			":vlweight"=>$this->getvlweight(),
-			":desurl"=>$this->getdesurl()
+		$results = $sql->select("CALL sp_atividades_save(
+			:idatividades,
+			:desctituloatividade,
+			:descatvidade,
+			:dtinicioatividade,
+			:dtfimatividades,
+			:idimagematividade,
+			:linkatividade,
+			:dtregistroatividade)",	 array(
+			":idatividades"=>$this->getidatividades(),
+			":desctituloatividade"=>$this->getdesctituloatividade(),
+			":descatvidade"=>$this->getdescatvidade(),
+			":dtinicioatividade"=>$this->getdtinicioatividade(),
+			":dtfimatividades"=>$this->getdtfimatividades(),
+			":idimagematividade"=>$this->getidimagematividade(),
+			":linkatividade"=>$this->getlinkatividade(),
+			":dtregistroatividade"=>$this->getldtregistroatividade()
 		));
+
+/* 		var_dump($this->getidatividades());
+		var_dump($this->getdesctituloatividade());
+		var_dump($this->getdescatvidade());		
+        var_dump($this->getdtinicioatividade());
+		var_dump($this->getdtfimatividades());
+		var_dump($this->getidimagematividade());
+		var_dump($this->getldtregistroatividade()); 		
+		var_dump($this->getlinkatividade());
+		exit; 
+		var_dump($sql);
+		var_dump($results);
+		exit;
+		*/
+
+
 
 		$this->setData($results[0]);
 
 	}
 
-	public function get($idproduct)
+	public function get($idatividade)
 	{
 
 		$sql = new Sql();
 
-		$results = $sql->select("SELECT * FROM tb_products WHERE idproduct = :idproduct", [
-			':idproduct'=>$idproduct
+		$results = $sql->select("SELECT * FROM tb_atividades WHERE idatividade = :idatividade", [
+			':idatividade'=>$idatividade
 		]);
 
 		$this->setData($results[0]);
@@ -71,8 +95,8 @@ class Product extends Model {
 
 		$sql = new Sql();
 
-		$sql->query("DELETE FROM tb_products WHERE idproduct = :idproduct", [
-			':idproduct'=>$this->getidproduct()
+		$sql->query("DELETE FROM tb_atividades WHERE idatividade = :idatividade", [
+			':idatividade'=>$this->getidatividade()
 		]);
 
 	}
@@ -85,15 +109,15 @@ class Product extends Model {
 			"res" . DIRECTORY_SEPARATOR . 
 			"site" . DIRECTORY_SEPARATOR . 
 			"img" . DIRECTORY_SEPARATOR . 
-			"products" . DIRECTORY_SEPARATOR . 
-			$this->getidproduct() . ".jpg"
+			"atividadea" . DIRECTORY_SEPARATOR . 
+			$this->getidatividade() . ".jpg"
 			)) {
 
-			$url = "/res/site/img/products/" . $this->getidproduct() . ".jpg";
+			$url = "/res/site/img/atividade/" . $this->getidatividade() . ".jpg";
 
 		} else {
 
-			$url = "/res/site/img/product.jpg";
+			$url = "/res/site/img/Atividade.jpg";
 
 		}
 
@@ -140,7 +164,7 @@ class Product extends Model {
 			"site" . DIRECTORY_SEPARATOR . 
 			"img" . DIRECTORY_SEPARATOR . 
 			"products" . DIRECTORY_SEPARATOR . 
-			$this->getidproduct() . ".jpg";
+			$this->getidatividade() . ".jpg";
 
 		imagejpeg($image, $dist);
 
@@ -155,7 +179,7 @@ class Product extends Model {
 
 		$sql = new Sql();
 
-		$rows = $sql->select("SELECT * FROM tb_products WHERE desurl = :desurl LIMIT 1", [
+		$rows = $sql->select("SELECT * FROM tb_atividades WHERE linkatividade = :desurl LIMIT 1", [
 			':desurl'=>$desurl
 		]);
 
@@ -163,7 +187,7 @@ class Product extends Model {
 
 	}
 
-	public function getCategories()
+/* 	public function getCategories()
 	{
 
 		$sql = new Sql();
@@ -175,7 +199,7 @@ class Product extends Model {
 			':idproduct'=>$this->getidproduct()
 		]);
 
-	}
+	} */
 
 	public static function getPage($page = 1, $itemsPerPage = 10)
 	{
@@ -186,8 +210,8 @@ class Product extends Model {
 
 		$results = $sql->select("
 			SELECT SQL_CALC_FOUND_ROWS *
-			FROM tb_products 
-			ORDER BY desproduct
+			FROM tb_atividades 
+			ORDER BY desctituloatividade
 			LIMIT $start, $itemsPerPage;
 		");
 
@@ -210,8 +234,8 @@ class Product extends Model {
 
 		$results = $sql->select("
 			SELECT SQL_CALC_FOUND_ROWS *
-			FROM tb_products 
-			WHERE desproduct LIKE :search
+			FROM tb_atividades 
+			WHERE desctituloatividade LIKE :search
 			ORDER BY desproduct
 			LIMIT $start, $itemsPerPage;
 		", [

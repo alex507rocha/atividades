@@ -31,7 +31,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Faça o login</p>
+    <p class="login-box-msg">Faça o login1</p>
 
     <form action="/admin/login" method="post">
       <div class="form-group has-feedback">

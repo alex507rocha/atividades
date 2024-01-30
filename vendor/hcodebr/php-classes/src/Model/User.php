@@ -71,22 +71,23 @@ class User extends Model {
 
 	public static function login($login, $password)
 	{
+	
 
 		$sql = new Sql();
 
 		$results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b ON a.idperson = b.idperson WHERE a.deslogin = :LOGIN", array(
 			":LOGIN"=>$login
 		)); 
-
+	
 		if (count($results) === 0)
 		{
-			throw new \Exception("Usuário inexistente ou senha inválida.");
+			throw new \Exception("Usuário inexistente ou senha inválida1.");
 		}
 
 		$data = $results[0];
-
+  
 		if (password_verify($password, $data["despassword"]) === true)
-		{
+		{		
 
 			$user = new User();
 
@@ -114,7 +115,8 @@ class User extends Model {
 			} else {
 				header("Location: /login");
 			}
-			exit;
+			
+	      
 
 		}
 
@@ -415,6 +417,7 @@ class User extends Model {
 		$results = $sql->select("SELECT * FROM tb_users WHERE deslogin = :deslogin", [
 			':deslogin'=>$login
 		]);
+	
 
 		return (count($results) > 0);
 

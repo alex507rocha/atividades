@@ -33,9 +33,9 @@ $app->post('/admin/login', function() {
 
 	} catch(Exception $e) {
 
-		//User::setError($e->getMessage());
-		//var_dump($e->getMessage());
-		//exit;
+		User::setError($e->getMessage());
+		var_dump($e->getMessage());
+		exit;
 
 	}
 

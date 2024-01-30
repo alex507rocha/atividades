@@ -15,6 +15,8 @@ $app->get('/admin', function() {
 
 $app->get('/admin/login', function() {
 
+	var_dump("passei");
+	exit;
 	$page = new PageAdmin([
 		"header"=>false,
 		"footer"=>false

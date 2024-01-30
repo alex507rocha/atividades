@@ -3,11 +3,11 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    Lista de Produtos
+    Lista de Atividades
   </h1>
   <ol class="breadcrumb">
     <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active"><a href="/admin/products">Produtos</a></li>
+    <li class="active"><a href="/admin/atividades">Produtos</a></li>
   </ol>
 </section>
 
@@ -19,9 +19,9 @@
   		<div class="box box-primary">
             
             <div class="box-header">
-              <a href="/admin/products/create" class="btn btn-success">Cadastrar Produto</a>
+              <a href="/admin/atividades/create" class="btn btn-success">Cadastrar Produto</a>
               <div class="box-tools">
-                <form action="/admin/products">
+                <form action="/admin/atividades">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="search" class="form-control pull-right" placeholder="Search" value="{$search}">
                     <div class="input-group-btn">
@@ -37,28 +37,24 @@
                 <thead>
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th>Nome da Produto</th>
-                    <th>Preço</th>
-                    <th>Largura</th>
-                    <th>Altura</th>
-                    <th>Comprimento</th>
-                    <th>Peso</th>
+                    <th>Título da Atividade</th>
+                    <th>Data Início</th>
+                    <th>Data Fim</th>
+                    <th>URL</th>
                     <th style="width: 140px">&nbsp;</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {loop="$products"}
+                  {loop="$atividades"}
                   <tr>
-                    <td>{$value.idproduct}</td>
-                    <td>{$value.desproduct}</td>
-                    <td>{$value.vlprice}</td>
-                    <td>{$value.vlwidth}</td>
-                    <td>{$value.vlheight}</td>
-                    <td>{$value.vllength}</td>
-                    <td>{$value.vlweight}</td>
+                    <td>{$value.idatividade}</td>
+                    <td>{$value.desctituloatividade}</td>
+                    <td>{$value.dtinicioatividade}</td>
+                    <td>{$value.dtfimatividades}</td>
+                    <td>{$value.linkatividade}</td>
                     <td>
-                      <a href="/admin/products/{$value.idproduct}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
-                      <a href="/admin/products/{$value.idproduct}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
+                      <a href="/admin/atividadea/{$value.idatividade}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i> Editar</a>
+                      <a href="/admin/atividades/{$value.idatividade}/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Excluir</a>
                     </td>
                   </tr>
                   {/loop}

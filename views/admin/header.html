@@ -128,7 +128,7 @@ desired effect
     </nav>
   </header>
   <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
+  <aside class="main-sidebar">  
 
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -143,7 +143,7 @@ desired effect
       <ul class="sidebar-menu">
         <!-- Optionally, you can add icons to the links -->
         <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
-        <li><a href="/admin/products"><i class="fa fa-link"></i> <span>Produtos</span></a></li>
+        <li><a href="/admin/atividades"><i class="fa fa-link"></i> <span>Atividades</span></a></li>
 
         
       </ul>

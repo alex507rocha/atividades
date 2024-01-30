@@ -1,0 +1,91 @@
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
+
+
+<div class="content-wrapper">
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+    Lista de Atividades
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="/admin/atividades">Atividades</a></li>
+    <li class="active"><a href="/admin/atividades/create">Cadastrar</a></li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+  <div class="row">
+  	<div class="col-md-12">
+  		<div class="box box-success">
+        <div class="box-header with-border">
+          <h3 class="box-title">Nova Ativivade</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" action="/admin/atividades/create" method="post">
+          <div class="box-body">
+            <div class="form-group">
+              <label for="d">Título</label>
+              <input type="text" class="form-control" id="desctituloatividade" name="desctituloatividade" placeholder="Digite o título">
+            </div>
+            <div class="form-group">
+              <label for="descatvidade">Descrição da atividade</label>
+             <!-- <input type="text" class="form-control" id="descatvidade" name="descatvidade">-->
+            <textarea id="descatvidade" name="descatvidade" rows="5" cols="100" class="form-control" placeholder="Digite a descrição da atividade"></textarea>
+            </div>
+
+
+            <div class="form-group">
+              <label>Data Início:</label>
+
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input type="date" class="form-control pull-right" id="dtinicioatividade" name="dtinicioatividade">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Data Final:</label>
+
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-calendar"></i>
+                </div>
+                <input type="date" class="form-control pull-right" id="dtfimatividades" name="dtfimatividades">
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <label for="desurl">URL</label>
+              <input type="text" class="form-control" id="linkatividade" name="linkatividade">
+            </div>
+          </div>
+          <!-- select -->
+          <div class="form-group">
+            <label>Status da atividade</label>
+            <select type="number" class="form-control" id="idstatus" name="idstatus">
+              <option value=1> Executando</option>
+              <option value=2> Encaminhado</option>
+              <option value=3> Aprovado</option>
+            </select>
+          </div>
+       
+          <!-- /.box-body -->
+          <div class="box-footer">
+            <button type="submit" class="btn btn-success">Cadastrar</button>
+          </div>
+        </form>
+      </div>
+  	</div>
+  </div>
+
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

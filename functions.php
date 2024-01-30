@@ -31,7 +31,7 @@ function getUserName()
 
 	$user = User::getFromSession();
 
-	return $user->getdesperson();
+	return utf8_decode($user->getdesperson());
 
 }
 
