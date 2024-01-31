@@ -65,7 +65,8 @@ $app->post("/admin/atividades/create", function(){
 	$atividade = new Atividade();
 
 	$atividade->setData($_POST);
-
+/*     var_dump($_POST);
+	exit; */
 	$atividade->save();
 
 	header("Location: /admin/atividades");
@@ -78,18 +79,20 @@ $app->get("/admin/atividades/:idatividade", function($idatividade){
 	User::verifyLogin();
 
 	$atividade = new Atividade();
-
 	$atividade->get((int)$idatividade);
+	
+	
 
 	$page = new PageAdmin();
 
 	$page->setTpl("atividades-update", [
 		'atividade'=>$atividade->getValues()
 	]);
-
 });
 
 $app->post("/admin/atividades/:idatividade", function($idatividade){
+
+	
 
 	User::verifyLogin();
 
@@ -99,9 +102,13 @@ $app->post("/admin/atividades/:idatividade", function($idatividade){
 
 	$atividade->setData($_POST);
 
+	
+ 	/* var_dump($atividade);
+	exit; */
+
 	$atividade->save();
 
-	$atividade->setPhoto($_FILES["file"]);
+	## $atividade->setPhoto($_FILES["file"]);
 
 	header('Location: /admin/atividades');
 	exit;

@@ -47,7 +47,7 @@ class Atividade extends Model {
 			:idimagematividade,
 			:linkatividade,
 			:dtregistroatividade)",	 array(
-			":idatividades"=>$this->getidatividades(),
+			":idatividades"=>$this->getidatividade(),
 			":desctituloatividade"=>$this->getdesctituloatividade(),
 			":descatvidade"=>$this->getdescatvidade(),
 			":dtinicioatividade"=>$this->getdtinicioatividade(),
@@ -57,7 +57,7 @@ class Atividade extends Model {
 			":dtregistroatividade"=>$this->getldtregistroatividade()
 		));
 
-/* 		var_dump($this->getidatividades());
+    	/* var_dump($this->getidatividade());
 		var_dump($this->getdesctituloatividade());
 		var_dump($this->getdescatvidade());		
         var_dump($this->getdtinicioatividade());
@@ -68,12 +68,14 @@ class Atividade extends Model {
 		exit; 
 		var_dump($sql);
 		var_dump($results);
-		exit;
-		*/
+		exit; */
+		
+
 
 
 
 		$this->setData($results[0]);
+
 
 	}
 
