@@ -64,8 +64,9 @@
               <label>Status da atividade</label>
               <select type="number" class="form-control" id="idstatus" name="idstatus">
                 <option value=1> Executando</option>
-                <option value=2> Encaminhado</option>
-                <option value=3> Aprovado</option>
+                <option value=2> Concluído</option>
+                <option value=3> Encaminhado</option>
+                <option value=4> Aprovado</option>
               </select>
             </div>
          

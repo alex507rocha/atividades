@@ -238,7 +238,7 @@ class Atividade extends Model {
 			SELECT SQL_CALC_FOUND_ROWS *
 			FROM tb_atividades 
 			WHERE desctituloatividade LIKE :search
-			ORDER BY desproduct
+			ORDER BY desctituloatividade
 			LIMIT $start, $itemsPerPage;
 		", [
 			':search'=>'%'.$search.'%'

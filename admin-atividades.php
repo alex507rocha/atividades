@@ -14,7 +14,7 @@ $app->get("/admin/atividades", function(){
 	if ($search != '') {
 
 		$pagination = Atividade::getPageSearch($search, $page);
-
+		
 	} else {
 
 		$pagination = Atividade::getPage($page);
