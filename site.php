@@ -19,8 +19,10 @@ $app->get('/admin/login', function() {
 		"header"=>false,
 		"footer"=>false
 	]);
-
-	$page->setTpl("login");
+	$page->setTpl("login", [
+		'error'=>User::getError()
+	]);	
+	// $page->setTpl("login");
 	
 
 });
@@ -34,8 +36,13 @@ $app->post('/admin/login', function() {
 	} catch(Exception $e) {
 
 		User::setError($e->getMessage());
-		var_dump($e->getMessage());
-		exit;
+		User::logout();
+	    header("Location: /admin/login");
+	exit;
+		
+
+		/* var_dump($e->getMessage());
+		 exit;*/
 
 	}
 
