@@ -4,6 +4,10 @@ use \Hcode\PageAdmin;
 use \Hcode\Model\User;
 
 $app->get('/admin', function() {
+
+		
+	
+var_dump(aaa);
     
 	User::verifyLogin();
 
@@ -11,12 +15,11 @@ $app->get('/admin', function() {
 
 	$page->setTpl("index");
 
+
 });
 
 $app->get('/admin/login', function() {
 
-	var_dump("passei");
-	exit;
 	$page = new PageAdmin([
 		"header"=>false,
 		"footer"=>false

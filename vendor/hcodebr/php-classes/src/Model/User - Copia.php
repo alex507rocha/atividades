@@ -102,13 +102,13 @@ class User extends Model {
 
 	public static function verifyLogin($inadmin = true)
 	{
-
+var_dump(aaa);
 		if (!User::checkLogin($inadmin)) {
 
 			if ($inadmin) {
 				header("Location: /admin/login");
 			} else {
-				header("Location: /login");
+				header("Location: /admin/login);
 			}
 			exit;
 

@@ -115,6 +115,7 @@ class User extends Model {
 			} else {
 				header("Location: /login");
 			}
+			exit;
 			
 	      
 
